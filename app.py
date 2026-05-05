@@ -150,8 +150,8 @@ def build_good_chart(df, display_name, types):
         r=values_closed,
         theta=stats_closed,
         fill="toself",
-        fillcolor="type[0]",  # ← you'll change this
-        line=dict(color="types[0]"),            # ← and this
+        fillcolor=type[0],  # ← you'll change this
+        line=dict(color=types[0]),            # ← and this
         name=display_name,
     ))
 
