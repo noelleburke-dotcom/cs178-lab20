@@ -178,12 +178,32 @@ def build_my_chart(df, display_name, types):
     'types' is available here too if you want to use the type color.
     Pick a chart type different from both the pie and the radar.
     Your chart should work well for any Pokémon, not just Charizard.
+    just adding the colors again so in range and can use
     """
+    TYPE_COLORS = {
+        "normal": "#A8A878", "fire": "#F08030", "water": "#6890F0",
+        "electric": "#F8D030", "grass": "#78C850", "ice": "#98D8D8",
+        "fighting": "#C03028", "poison": "#A040A0", "ground": "#E0C068",
+        "flying": "#A890F0", "psychic": "#F85888", "bug": "#A8B820",
+        "rock": "#B8A038", "ghost": "#705898", "dragon": "#7038F8",
+        "dark": "#705848", "steel": "#B8B8D0", "fairy": "#EE99AC",
+    }
+
     # ── Replace this placeholder with your own chart ───────────────────────────
-    fig = go.Figure()
-    fig.update_layout(
-        title="Your chart goes here — edit build_my_chart() in app.py",
+    
+    fig = px.bar(
+        df,
+        x="stat",
+        y="value",
+        color_discrete_sequence=[TYPE_COLORS[types[0]]]
     )
+
+    
+
+    fig.update_layout(
+          title=f"{display_name} — Base Stat Spread"
+    )
+ 
     # ── End of placeholder ─────────────────────────────────────────────────────
     return apply_dark_theme(fig)
 
